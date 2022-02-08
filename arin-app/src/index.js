@@ -1,16 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-// function App(){
-//     return <h1>Fonksiyonel Component</h1>;
-// }
+//----------------JSX--------------------
+const names = ["Harry", "Hermione", "Ron"];
 
 
-class App extends React.Component {
-    render () {
-        return <h1>Class Component</h1>;
-    }
+function App(){
+    return (
+    <div>
+        {/* {names.map(name => (<h1>{name}</h1>))} */}
+        <button type="button" style={{padding: "10px", color: "white", backgroundColor: "red", border: "2px solid blue"}}>HTML Button</button>
+
+    </div>
+    );
 }
+// class App extends React.Component {
+//     render () {
+//         return <h1>Class Component</h1>;
+//     }
+// }
 
 
 ReactDOM.render(
