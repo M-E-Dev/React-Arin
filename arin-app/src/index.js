@@ -1,9 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Card from './components/card';
+import Card from "./components/card";
+import Collapse from "./components/collapse";
 
 //----------------JSX--------------------
-const names = ["Harry", "Hermione", "Ron"];
+// const names = ["Harry", "Hermione", "Ron"];
 
 function App() {
   return (
@@ -12,13 +13,27 @@ function App() {
       {/* <button type="button" style={{padding: "10px", color: "white", backgroundColor: "red", border: "2px solid blue"}}>jsx Button</button> */}
       {/* <h1 className="display-1">Display 1</h1> */}
       <div className="card-group">
+        <Collapse href="collapseExample1">
+          Pure Collapse Content
+        </Collapse>
 
-        <Card cardTitle="Fenerbahçe"/>
+        <Collapse href="collapseExample2">
+          <Card
+            cardTitle="Card Title II"
+            image="https://picsum.photos/id/1040/200/150"
+            cardText="Galatasaray Spor Kulübü"
+            updatedTime="Last updated 2 mins ago"
+          />
+        </Collapse>
 
-        <Card cardTitle="Galatasaray"/>
-
-        <Card cardTitle="Beşiktaş"/>
-
+        <Collapse href="collapseExample3">
+          <Card
+            cardTitle="Card Title III"
+            image="https://picsum.photos/id/1031/200/150"
+            cardText="Beşiktaş Jimnastik Kulübü"
+            updatedTime="Last updated 3 mins ago"
+          />
+        </Collapse>
       </div>
     </div>
   );
