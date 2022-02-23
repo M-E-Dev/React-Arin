@@ -103,4 +103,4 @@ ReactDOM.render(<App />, document.getElementById("root"));
 //   );
 // }
 
-// ReactDOM.render(<KuzenYaz />, document.getElementById("root"));
+// ReactDOM.render(<App />, document.getElementById("root"));
