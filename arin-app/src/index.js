@@ -34,7 +34,6 @@ function App() {
           <div className="col">
             <Collapse href="collapseExample3">
               <Card
-              
                 cardTitle="Card Title II"
                 image="https://picsum.photos/id/120/200/150"
                 cardText="Beşiktaş Spor Kulübü"
@@ -47,6 +46,8 @@ function App() {
     </div>
   );
 }
+
+
 // function App() {
 //   return (
 //     <div className="container">
