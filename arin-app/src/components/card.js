@@ -17,6 +17,11 @@ import PropTypes from 'prop-types';
 
 
 class Card extends React.Component {
+  static defaultProps = {
+    cardTitle: "Default Title",
+    cardText: "Default Text",
+    image: "https://picsum.photos/id/1050/200/150"
+  }
   render() {
     return (
       <div className="card w-100">
@@ -34,9 +39,9 @@ class Card extends React.Component {
 }
 
 Card.defaultProps = {
-  cardTitle: "Default Title",
-  cardText: "Default Text",
-  image: "https://picsum.photos/id/1050/200/150"
+  // cardTitle: "Default Title",
+  // cardText: "Default Text",
+  // image: "https://picsum.photos/id/1050/200/150"
 }
 
 Card.propTypes = {
