@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 // const Card = (props) => {
 //     console.log(props)
@@ -36,6 +37,10 @@ Card.defaultProps = {
   cardTitle: "Default Title",
   cardText: "Default Text",
   image: "https://picsum.photos/id/1050/200/150"
+}
+
+Card.propTypes = {
+  cardTitle: PropTypes.array
 }
 
 export default Card;
