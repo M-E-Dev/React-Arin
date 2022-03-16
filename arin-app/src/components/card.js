@@ -31,4 +31,11 @@ class Card extends React.Component {
     );
   }
 }
+
+Card.defaultProps = {
+  cardTitle: "Default Title",
+  cardText: "Default Text",
+  image: "https://picsum.photos/id/1050/200/150"
+}
+
 export default Card;
