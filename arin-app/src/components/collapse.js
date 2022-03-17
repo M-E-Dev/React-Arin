@@ -38,7 +38,9 @@ class Collapse extends React.Component {
   }
 }
 
+
 export default Collapse;
+
 
 // classa çevirilen functional versiyon
 // const Collapse = (props) => {
