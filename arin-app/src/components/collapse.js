@@ -1,3 +1,10 @@
+// ilk constructor çalışır -- starte initialize
+// render çalıştı
+// onclick çalıştı
+// setstate nesnesini güncelledi -- trigger render
+// render güncel jsx i sayfada gösterdi
+
+
 import React from "react";
 
 class Collapse extends React.Component {
