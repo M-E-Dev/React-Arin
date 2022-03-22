@@ -7,13 +7,22 @@ class Collapse extends React.Component {
     this.state = {
       showContent: false,
     };
+    // this.showMore = () => {
+    //   this.setState({showContent: true})
+    // }
+    this.showMore = this.showMore.bind(this)
+  }
+
+  showMore() {
+    this.setState({showContent: true})
   }
 
   render() {
     return (
       <div className="m-2">
-        <a
+        <button
           className="btn btn-primary w-100"
+          onClick={this.showMore}
           // //bootstrap özelliklerini sildik, state ile yapıcaz
           // data-bs-toggle="collapse"
           // href={"#".concat(this.props.href)}
@@ -22,7 +31,7 @@ class Collapse extends React.Component {
           // aria-controls="collapseExample"
         >
           Link with href
-        </a>
+        </button>
 
         {this.state.showContent ? (
           <div
