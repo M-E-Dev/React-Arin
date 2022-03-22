@@ -4,25 +4,37 @@
 // setstate nesnesini güncelledi -- trigger render
 // render güncel jsx i sayfada gösterdi
 
-
 import React from "react";
 
 class Collapse extends React.Component {
-  constructor() {
-    super();
+  // constructor() {
+  //   super();
 
-    this.state = {
-      showContent: false,
-    };
-    // this.showMore = () => {
-    //   this.setState({showContent: true})
-    // }
-    this.showMore = this.showMore.bind(this)
-  }
+  //   this.state = {
+  //     showContent: false,
+  //   };
+  //   // this.showMore = () => {
+  //     //   this.setState({showContent: true})
+  //     // }
+  //     // this.showMore = this.showMore.bind(this)
+  //   }
 
-  showMore() {
-    this.setState({showContent: !this.state.showContent})
-  }
+  //constructorsuz da oluyor
+  state = {
+    showContent: false,
+  };
+
+  showMore = () => {
+    this.setState({ showContent: !this.state.showContent });
+  };
+
+  // componentDidMount() {
+  //   console.log("component oluşturuldu");
+  // }
+
+  // componentDidUpdate() {
+  //   console.log("component güncellendi");
+  // }
 
   render() {
     return (
@@ -30,6 +42,7 @@ class Collapse extends React.Component {
         <button
           className="btn btn-primary w-100"
           onClick={this.showMore}
+          
           // //bootstrap özelliklerini sildik, state ile yapıcaz
           // data-bs-toggle="collapse"
           // href={"#".concat(this.props.href)}
@@ -37,15 +50,19 @@ class Collapse extends React.Component {
           // aria-expanded="false"
           // aria-controls="collapseExample"
         >
-          Link with href
+          {/* {this.props.children.props.cardTitle} UZUN YOL*/}
+
+          {React.Children.map(this.props.children, children => children.props.cardTitle)}
+
         </button>
 
         {this.state.showContent ? (
           <div
-            className="collapse show"
-            //id={this.props.href}
+          className="collapse show"
+          //id={this.props.href}
           >
-            {this.props.children}
+            {/* {this.props.children} */}
+            {React.Children.map(this.props.children, children => children)}
             {this.state.showContent}
           </div>
         ) : null}
