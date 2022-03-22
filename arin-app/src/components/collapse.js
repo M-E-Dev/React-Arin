@@ -14,7 +14,7 @@ class Collapse extends React.Component {
   }
 
   showMore() {
-    this.setState({showContent: true})
+    this.setState({showContent: !this.state.showContent})
   }
 
   render() {
