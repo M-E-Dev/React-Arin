@@ -3,5 +3,6 @@ import ReactDOM from "react-dom";
 
 // App.js buraya da gömülebilir, ayrı yapıp import ettik
 import App from "./components/App";
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
 
 ReactDOM.render(<App />, document.getElementById("root"));
