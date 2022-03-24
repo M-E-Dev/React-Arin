@@ -4,6 +4,8 @@ class MovieList extends React.Component {
   render() {
     return (
       <div className="row">
+        
+        
         <div className="col-lg-4">
           <div className="card mb-4 shadow-sm">
               <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/xbiycuc84TrieEWwkkuH2hoEa9S.jpg" className="card-img-top" alt="Sample-Pic"></img>
