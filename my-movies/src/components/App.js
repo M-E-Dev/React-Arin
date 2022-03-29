@@ -12,7 +12,7 @@ class App extends React.Component {
             name: "The Flash",
             rating: 8.3,
             overview:
-              "This is a wider card with supporting text below as a natural lead-in to additional content",
+              "Geçmişinde büyük bir trajedi yaşamış Barry Allen, Central City Polis Birimi’nde çalışan ve suçluların arkalarında bıraktıkları ipuçlarını toplayan bir adli laboratuvar asistanıdır. ",
             imageURL:
               "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/lJA2RCMfsWoskqlQhXPSLFQGXEJ.jpg",
           },
@@ -21,7 +21,7 @@ class App extends React.Component {
             name: "Interstellar",
             rating: 9.4,
             overview:
-              "This is a wider card with supporting text below as a natural lead-in to additional content",
+              "Teknik bilgisi ve becerisi yüksek olan Cooper, geniş mısır tarlalarında çiftçilik yaparak geçinmektedir; amacı iki çocuğuna güvenli bir hayat sunmaktır. ",
             imageURL:
               "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/xbiycuc84TrieEWwkkuH2hoEa9S.jpg",
           },
@@ -30,11 +30,20 @@ class App extends React.Component {
             name: "Arrow",
             rating: 6.7,
             overview:
-              "This is a wider card with supporting text below as a natural lead-in to additional content",
+              "Şiddetli bir gemi kazasından sonra, milyarder playboy Oliver Queen kaybolmuştur ve Pasifik’te ücra bir adada yaşadığı keşfedilinceye kadar, beş yıl boyunca ölü olduğu sanılmıştır.",
             imageURL:
               "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/gKG5QGz5Ngf8fgWpBsWtlg5L2SF.jpg",
           },
         ]
+    }
+
+    deleteMovie = (movie) => {
+      const newMovieList = this.state.movies.filter(
+        m => m.id !== movie.id
+      );
+      this.setState ({
+        movies:newMovieList
+      })
     }
 
   render() {
@@ -48,6 +57,7 @@ class App extends React.Component {
 
             <MovieList 
             movies={this.state.movies}
+            deleteMovieProp={this.deleteMovie}
             />
         </div>
       );
