@@ -17,7 +17,6 @@ class MovieList extends React.Component {
                         <h2><span className="badgebadge-info">9.0</span></h2>
                     </div>
               </div>
-              h1
           </div>
         </div>
       </div>

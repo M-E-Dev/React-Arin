@@ -46,7 +46,9 @@ class App extends React.Component {
                 </div>
             </div>
 
-            <MovieList />
+            <MovieList 
+            movies={this.state.movies}
+            />
         </div>
       );
     };
