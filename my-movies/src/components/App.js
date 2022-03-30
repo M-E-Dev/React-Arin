@@ -41,9 +41,15 @@ class App extends React.Component {
       const newMovieList = this.state.movies.filter(
         m => m.id !== movie.id
       );
-      this.setState ({
-        movies:newMovieList
-      })
+      
+      //State boş olsaydı bu kullanılabilirdi
+      // this.setState ({
+      //   movies:newMovieList
+      // })
+
+      this.setState(state => ({
+        movies: newMovieList
+      }))
     }
 
   render() {
@@ -51,7 +57,8 @@ class App extends React.Component {
         <div className="container">
             <div className="row">
                 <div className="col-lg-12">
-                    <SearchBar />
+                    <SearchBar 
+                    />
                 </div>
             </div>
 
