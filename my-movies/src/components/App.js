@@ -77,17 +77,30 @@ class App extends React.Component {
     }));
   };
 
+  searchMovie = (event) => {
+    // console.log(event.target.value)
+    this.setState({
+      searchQuery:event.target.value
+    })
+  }
+
+
   render() {
+
+    let filteredMovies = this.state.movies.filter(
+      (movie) => {return movie.name.toLowerCase().indexOf(this.state.searchQuery.toLowerCase()) !== -1}
+      );
+
     return (
       <div className="container">
         <div className="row">
           <div className="col-lg-12">
-            <SearchBar searchMovieProp={this.searchMovie/>
+            <SearchBar searchMovieProp={this.searchMovie}/>
           </div>
         </div>
 
         <MovieList
-          movies={this.state.movies}
+          movies={filteredMovies}
           deleteMovieProp={this.deleteMovie}
         />
       </div>

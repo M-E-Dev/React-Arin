@@ -19,7 +19,7 @@ class SearchBar extends React.Component {
                     <div className="col-12">
                         <input
                         // value="Matrix"   --- value kullnırsak kontrol edemeyiz
-                        value={this.state.searchQuery}
+                        // value={this.state.searchQuery}
                         // onChange={(event) => console.log(event.target.value)}
                         // onChange={(event) => this.setState({searchQuery: event.target.value})}
                         onChange={this.props.searchMovieProp}
