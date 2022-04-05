@@ -72,10 +72,15 @@ class App extends React.Component {
       }
 
     render() {
+
+        let filteredMovies = this.state.movies.filter(
+            (movie) => {return movie.name.toLowerCase().indexOf(this.state.searchQuery.toLowerCase()) !== -1}
+        )
+
         return(
             <div>
             <SearchBar searchMovieProp={this.searchMovie}/>
-            <MovieList />
+            <MovieList movies={filteredMovies} />
             </div>
         )
     }
