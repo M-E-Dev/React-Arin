@@ -1,23 +1,16 @@
-
 import React from "react";
 
 class SearchBar extends React.Component {
 
-    // state = {
-    //     searchQuery: ""
-    // }
-
     handleFormSubmit = (event) => {
-        event.preventDefault();
+        event.preventDefault()
     }
-
-    render(){
-
+    
+    render() {
         return(
-
             <form onSubmit={this.handleFormSubmit}>
                 <div className="form-row mb-5 mt-5">
-                    <div className="col-12">
+                    <div className="col-12 px-2">
                         <input
                         // value="Matrix"   --- value kullnırsak kontrol edemeyiz
                         // value={this.state.searchQuery}
@@ -28,12 +21,8 @@ class SearchBar extends React.Component {
                     </div>
                 </div>
             </form>
-
         )
-
     }
-
-
 }
 
 export default SearchBar;
