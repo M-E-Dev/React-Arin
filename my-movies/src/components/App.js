@@ -71,6 +71,11 @@ class App extends React.Component {
         console.log(event.target.value)
       }
 
+      deleteMovie = (movie) => {
+        const newMovieList = this.state.movies.filter((m) => m.id !== movie.id);
+        this.setState((state) => ({movies: newMovieList}))
+      }
+
     render() {
 
         let filteredMovies = this.state.movies.filter(
@@ -80,7 +85,7 @@ class App extends React.Component {
         return(
             <div>
             <SearchBar searchMovieProp={this.searchMovie}/>
-            <MovieList movies={filteredMovies} />
+            <MovieList deleteMovieProp={this.deleteMovie} movies={filteredMovies} />
             </div>
         )
     }
