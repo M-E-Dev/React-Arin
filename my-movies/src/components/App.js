@@ -64,6 +64,14 @@ class App extends React.Component {
     searchQuery: "",
   };
 
+  async componentDidMount() {
+    const baseURL = "http://localhost:3002/movies"
+    const response = await fetch(baseURL);
+    const data = await response.json();
+    console.log(data)
+    this.setState({movies: data})
+  }
+
   searchMovie = (event) => {
     // console.log(event.target.value)
     this.setState({
