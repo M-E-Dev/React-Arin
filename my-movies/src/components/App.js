@@ -1,6 +1,7 @@
 import React from "react";
 import SearchBar from "./SearchBar";
 import MovieList from "./MovieList";
+import axios from "axios";
 
 class App extends React.Component {
   state = {
@@ -64,12 +65,26 @@ class App extends React.Component {
     searchQuery: "",
   };
 
+  // // Fetch yöntemi
+  // async componentDidMount() {
+  //   const baseURL = "http://localhost:3002/movies"
+  //   const response = await fetch(baseURL);
+  //   console.log(response)
+  //   const data = await response.json();
+  //   console.log(data)
+  //   this.setState({movies: data})
+  // }
+
+  // // AXIOS yöntemi promise tabanlı kütüphane
+  // google axios npm
+  // ctrl+c to stop
+  // npm i axios
+  // import axios from "axios";
+  // tek seferde json olarak alıyoruz  .json gerekmiyor
   async componentDidMount() {
-    const baseURL = "http://localhost:3002/movies"
-    const response = await fetch(baseURL);
-    const data = await response.json();
-    console.log(data)
-    this.setState({movies: data})
+    const response = await axios.get("http://localhost:3002/movies");
+    console.log(response);
+    this.setState({ movies: response.data });
   }
 
   searchMovie = (event) => {
@@ -80,14 +95,17 @@ class App extends React.Component {
     console.log(event.target.value);
   };
 
-  deleteMovie = (movie) => {
+
+  // Fetch yöntemi
+  deleteMovie = async (movie) => {
+    
+    const newMovieList = this.state.movies.filter((m) => m.id !== movie.id);
+    this.setState((state) => ({ movies: newMovieList }));
+
     //State boş olsaydı bu kullanılabilirdi
     // this.setState ({
     //   movies:newMovieList
     // })
-
-    const newMovieList = this.state.movies.filter((m) => m.id !== movie.id);
-    this.setState((state) => ({ movies: newMovieList }));
   };
 
   render() {
