@@ -76,11 +76,11 @@ class App extends React.Component {
   // }
 
   // // AXIOS yöntemi promise tabanlı kütüphane
-  // google axios npm
-  // ctrl+c to stop
-  // npm i axios
-  // import axios from "axios";
-  // tek seferde json olarak alıyoruz  .json gerekmiyor
+  // // google axios npm
+  // // ctrl+c to stop
+  // // npm i axios
+  // // import axios from "axios";
+  // // tek seferde json olarak alıyoruz  .json gerekmiyor
   async componentDidMount() {
     const response = await axios.get("http://localhost:3002/movies");
     console.log(response);
@@ -98,7 +98,10 @@ class App extends React.Component {
 
   // Fetch yöntemi
   deleteMovie = async (movie) => {
-    
+    const url = `http://localhost:3002/movies/${movie.id}`
+    await fetch(url, {
+      method: "DELETE"
+    })
     const newMovieList = this.state.movies.filter((m) => m.id !== movie.id);
     this.setState((state) => ({ movies: newMovieList }));
 
