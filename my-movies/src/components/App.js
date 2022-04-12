@@ -75,16 +75,23 @@ class App extends React.Component {
   //   this.setState({movies: data})
   // }
 
-  // // AXIOS yöntemi promise tabanlı kütüphane
-  // // google axios npm
-  // // ctrl+c to stop
-  // // npm i axios
-  // // import axios from "axios";
-  // // tek seferde json olarak alıyoruz  .json gerekmiyor
+  // // // AXIOS yöntemi promise tabanlı kütüphane
+  // // // google axios npm
+  // // // ctrl+c to stop
+  // // // npm i axios
+  // // // import axios from "axios";
+  // // // tek seferde json olarak alıyoruz  .json gerekmiyor
+  // async componentDidMount() {
+  //   const response = await axios.get("http://localhost:3002/movies");
+  //   console.log(response);
+  //   this.setState({ movies: response.data });
+  // }
+  
+  // Gerçek apiden alıyoruz. Response bakıp yolu ona göre çizicez
   async componentDidMount() {
-    const response = await axios.get("http://localhost:3002/movies");
-    console.log(response);
-    this.setState({ movies: response.data });
+    const response = await axios.get("https://api.themoviedb.org/3/movie/popular?api_key=274c12e6e2e4f9ca265a01d107280eba&language=en-US&page=1");
+    console.log(response.data.results);
+    this.setState({ movies: response.data.results });
   }
 
   searchMovie = (event) => {
@@ -100,8 +107,11 @@ class App extends React.Component {
   deleteMovie = async (movie) => {
     const url = `http://localhost:3002/movies/${movie.id}`
     await fetch(url, {
+      // Default metod get olduğu için normalde metod belirtmiyoruz.
+      // Burada ise  
       method: "DELETE"
     })
+    // Filter metodu silinirse apiden siliniyor ama ekran güncellenmiyor.
     const newMovieList = this.state.movies.filter((m) => m.id !== movie.id);
     this.setState((state) => ({ movies: newMovieList }));
 
@@ -111,10 +121,18 @@ class App extends React.Component {
     // })
   };
 
+  // // AXIOS yöntemi
+  // deleteMovie = async (movie) => {
+  //   axios.delete(`http://localhost:3002/movies/${movie.id}`)
+  //   // Axios da filter gerekiyor. Apiden siliniyor ama ekranda güncellemiyor yoksa.
+  //   const newMovieList = this.state.movies.filter((m) => m.id !== movie.id);
+  //   this.setState((state) => ({ movies: newMovieList }));
+  // };
+
   render() {
     let filteredMovies = this.state.movies.filter((movie) => {
       return (
-        movie.name
+        movie.title
           .toLowerCase()
           .indexOf(this.state.searchQuery.toLowerCase()) !== -1
       );
