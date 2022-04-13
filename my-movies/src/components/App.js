@@ -70,15 +70,16 @@ class App extends React.Component {
     searchQuery: "",
   };
 
-  // // Fetch yöntemi
-  // async componentDidMount() {
-  //   const baseURL = "http://localhost:3002/movies"
-  //   const response = await fetch(baseURL);
-  //   console.log(response)
-  //   const data = await response.json();
-  //   console.log(data)
-  //   this.setState({movies: data})
-  // }
+  // Fetch yöntemi
+  async componentDidMount() {
+    // npx json-server --watch src/api/movies.json --port 3002 ile fake api canlandırdık ve aşağıda kullandık
+    const baseURL = "http://localhost:3002/movies"
+    const response = await fetch(baseURL);
+    console.log(response)
+    const data = await response.json();
+    console.log(data)
+    this.setState({movies: data})
+  }
 
   // // // AXIOS yöntemi promise tabanlı kütüphane
   // // // google axios npm
@@ -93,15 +94,17 @@ class App extends React.Component {
   // }
   
   // Gerçek apiden alıyoruz. Response bakıp yolu ona göre çizicez
-  async componentDidMount() {
-    // api key açıkta
-    // const response = await axios.get("https://api.themoviedb.org/3/movie/popular?api_key=274c12e6e2e4f9ca265a01d107280eba&language=en-US&page=1");
-    // Api key gizlemek için -->
-    //                       --> (npm i dotenv)
-    const response = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=1`);
-    console.log(response.data.results);
-    this.setState({ movies: response.data.results });
-  }
+  // async componentDidMount() {
+  //   // api key açıkta
+  //   // const response = await axios.get("https://api.themoviedb.org/3/movie/popular?api_key=274c12e6e2e4f9ca265a01d107280eba&language=en-US&page=1");
+  //   // Api key gizlemek için -->
+  //   //                       --> (npm i dotenv)
+  //   // Roota .env dosyası açıp içine REACT_APP_API_KEY=274c12e6e2e4f9ca265a01d107280eba şeklinde yazdık
+  //   // içerde de aşağıdaki şekilde çağırdık.
+  //   const response = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=1`);
+  //   console.log(response.data.results);
+  //   this.setState({ movies: response.data.results });
+  // }
 
   searchMovie = (event) => {
     // console.log(event.target.value)
