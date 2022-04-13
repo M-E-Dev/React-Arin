@@ -3,6 +3,11 @@ import SearchBar from "./SearchBar";
 import MovieList from "./MovieList";
 import axios from "axios";
 
+// require('dotenv').config()
+// console.log(process.env.REACT_APP_API_KEY)
+// import 'dotenv/config';
+// import express from 'express';
+
 class App extends React.Component {
   state = {
     movies: [
@@ -93,7 +98,7 @@ class App extends React.Component {
     // const response = await axios.get("https://api.themoviedb.org/3/movie/popular?api_key=274c12e6e2e4f9ca265a01d107280eba&language=en-US&page=1");
     // Api key gizlemek için -->
     //                       --> (npm i dotenv)
-    const response = await axios.get("https://api.themoviedb.org/3/movie/popular?api_key=274c12e6e2e4f9ca265a01d107280eba&language=en-US&page=1");
+    const response = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=1`);
     console.log(response.data.results);
     this.setState({ movies: response.data.results });
   }
