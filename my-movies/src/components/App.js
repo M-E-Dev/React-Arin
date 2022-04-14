@@ -1,6 +1,14 @@
 import React from "react";
 import SearchBar from "./SearchBar";
 import MovieList from "./MovieList";
+import AddMovie from "./AddMovie";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Switch,
+  Link,
+} from "react-router-dom";
 import axios from "axios";
 
 // require('dotenv').config()
@@ -73,12 +81,12 @@ class App extends React.Component {
   // Fetch yöntemi
   async componentDidMount() {
     // npx json-server --watch src/api/movies.json --port 3002 ile fake api canlandırdık ve aşağıda kullandık
-    const baseURL = "http://localhost:3002/movies"
+    const baseURL = "http://localhost:3002/movies";
     const response = await fetch(baseURL);
-    console.log(response)
+    console.log(response);
     const data = await response.json();
-    console.log(data)
-    this.setState({movies: data})
+    console.log(data);
+    this.setState({ movies: data });
   }
 
   // // // AXIOS yöntemi promise tabanlı kütüphane
@@ -92,7 +100,7 @@ class App extends React.Component {
   //   console.log(response);
   //   this.setState({ movies: response.data });
   // }
-  
+
   // Gerçek apiden alıyoruz. Response bakıp yolu ona göre çizicez
   // async componentDidMount() {
   //   // api key açıkta
@@ -114,15 +122,14 @@ class App extends React.Component {
     console.log(event.target.value);
   };
 
-
   // Fetch yöntemi
   deleteMovie = async (movie) => {
-    const url = `http://localhost:3002/movies/${movie.id}`
+    const url = `http://localhost:3002/movies/${movie.id}`;
     await fetch(url, {
       // Default metod get olduğu için normalde metod belirtmiyoruz.
-      // Burada ise  
-      method: "DELETE"
-    })
+      // Burada ise
+      method: "DELETE",
+    });
     // Filter metodu silinirse apiden siliniyor ama ekran güncellenmiyor.
     const newMovieList = this.state.movies.filter((m) => m.id !== movie.id);
     this.setState((state) => ({ movies: newMovieList }));
@@ -141,6 +148,11 @@ class App extends React.Component {
   //   this.setState((state) => ({ movies: newMovieList }));
   // };
 
+  //  Routing kullanmadan bu şekilde yapılırdı
+  // if (window.location === http:/localhost:3000/edit) {
+  //
+  // }
+
   render() {
     let filteredMovies = this.state.movies.filter((movie) => {
       return (
@@ -152,12 +164,32 @@ class App extends React.Component {
 
     return (
       <div className="container">
-        <div className="row">
-          <div className="col-lg-12">
-            <SearchBar searchMovieProp={this.searchMovie} />
-          </div>
-        </div>
-        <MovieList deleteMovieProp={this.deleteMovie} movies={filteredMovies} />
+        <Routes>
+          <Route
+            path="/"
+            render={() => (
+              // <div></div> Jsx içeriğini dive almak yerine React.Fragment kullanacağız, Aynı hiyerarşide çoklu element almamızı sağlar
+              <React.Fragment>
+                <div className="row">
+                  <div className="col-lg-12">
+                    <SearchBar searchMovieProp={this.searchMovie} />
+                  </div>
+                </div>
+
+                <MovieList
+                  deleteMovieProp={this.deleteMovie}
+                  movies={filteredMovies}
+                />
+              </React.Fragment>
+            )}
+          ></Route>
+
+          {/* <Route path="/add">
+            <AddMovie />
+          </Route> */}
+          {/* Yerine aşağıdaki gibi yazabiliriz */}
+          <Route path="/add" component={AddMovie} />
+        </Routes>
       </div>
     );
   }
