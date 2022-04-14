@@ -163,35 +163,37 @@ class App extends React.Component {
     });
 
     return (
-      <div className="App">
-        <Router>
-          <Routes>
-            <Route
-              path="/"
-              render={() => (
-                // <div></div> Jsx içeriğini dive almak yerine React.Fragment kullanacağız, Aynı hiyerarşide çoklu element almamızı sağlar
-                <React.Fragment>
-                  <div className="row">
-                    <div className="col-lg-12">
-                      <SearchBar searchMovieProp={this.searchMovie} />
+      <div className="container">
+        <Switch>
+          <Router>
+            <Routes>
+              {/* <Route path="/add">
+                          <AddMovie />
+                        </Route> */}
+              {/* Yerine aşağıdaki gibi yazabiliriz */}
+              <Route path="/add" element={<AddMovie />} />
+
+              <Route exact
+                path="/"
+                render={() => (
+                  // <div></div> Jsx içeriğini dive almak yerine React.Fragment kullanacağız, Aynı hiyerarşide çoklu element almamızı sağlar
+                  <React.Fragment>
+                    <div className="row">
+                      <div className="col-lg-12">
+                        <SearchBar searchMovieProp={this.searchMovie} />
+                      </div>
                     </div>
-                  </div>
 
-                  <MovieList
-                    deleteMovieProp={this.deleteMovie}
-                    movies={filteredMovies}
-                  />
-                </React.Fragment>
-              )}
-            ></Route>
-
-            {/* <Route path="/add">
-            <AddMovie />
-          </Route> */}
-            {/* Yerine aşağıdaki gibi yazabiliriz */}
-            <Route path="/add" component={AddMovie} />
-          </Routes>
-        </Router>
+                    <MovieList
+                      deleteMovieProp={this.deleteMovie}
+                      movies={filteredMovies}
+                    />
+                  </React.Fragment>
+                )}
+              />
+            </Routes>
+          </Router>
+        </Switch>
       </div>
     );
   }
