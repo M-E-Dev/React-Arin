@@ -3,7 +3,7 @@ import SearchBar from "./SearchBar";
 import MovieList from "./MovieList";
 import AddMovie from "./AddMovie";
 import {
-  BrowserRouter,
+  BrowserRouter as Router,
   Routes,
   Route,
   Switch,
@@ -163,33 +163,35 @@ class App extends React.Component {
     });
 
     return (
-      <div className="container">
-        <Routes>
-          <Route
-            path="/"
-            render={() => (
-              // <div></div> Jsx içeriğini dive almak yerine React.Fragment kullanacağız, Aynı hiyerarşide çoklu element almamızı sağlar
-              <React.Fragment>
-                <div className="row">
-                  <div className="col-lg-12">
-                    <SearchBar searchMovieProp={this.searchMovie} />
+      <div className="App">
+        <Router>
+          <Routes>
+            <Route
+              path="/"
+              render={() => (
+                // <div></div> Jsx içeriğini dive almak yerine React.Fragment kullanacağız, Aynı hiyerarşide çoklu element almamızı sağlar
+                <React.Fragment>
+                  <div className="row">
+                    <div className="col-lg-12">
+                      <SearchBar searchMovieProp={this.searchMovie} />
+                    </div>
                   </div>
-                </div>
 
-                <MovieList
-                  deleteMovieProp={this.deleteMovie}
-                  movies={filteredMovies}
-                />
-              </React.Fragment>
-            )}
-          ></Route>
+                  <MovieList
+                    deleteMovieProp={this.deleteMovie}
+                    movies={filteredMovies}
+                  />
+                </React.Fragment>
+              )}
+            ></Route>
 
-          {/* <Route path="/add">
+            {/* <Route path="/add">
             <AddMovie />
           </Route> */}
-          {/* Yerine aşağıdaki gibi yazabiliriz */}
-          <Route path="/add" component={AddMovie} />
-        </Routes>
+            {/* Yerine aşağıdaki gibi yazabiliriz */}
+            <Route path="/add" component={AddMovie} />
+          </Routes>
+        </Router>
       </div>
     );
   }
