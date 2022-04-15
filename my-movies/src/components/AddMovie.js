@@ -1,4 +1,5 @@
 import React from 'react';
+// npm i form-serialize
 // import serialize from 'form-serialize';
 
 // Routing
@@ -6,6 +7,10 @@ import React from 'react';
 // 
 
 class AddMovie extends React.Component {
+
+    handleFormSubmit = (e) => {
+        e.preventDefault();
+    }
 
 
     render() {

@@ -2,7 +2,6 @@ import React from "react";
 import SearchBar from "./SearchBar";
 import MovieList from "./MovieList";
 import AddMovie from "./AddMovie";
-import Home from "./home";
 import {
   BrowserRouter as Router,
   Routes,
@@ -164,23 +163,53 @@ class App extends React.Component {
     });
 
     return (
+      // <div className="container">
+      //   <Router>
+      //     <Routes>
+      //       <Route
+      //         exact
+      //         path="/"
+      //         render={() => (
+      //           // <div></div> Jsx içeriğini dive almak yerine React.Fragment kullanacağız, Aynı hiyerarşide çoklu element almamızı sağlar
+      //           <React.Fragment>
+      //             <AddMovie />
+      //             <div className="row">
+      //               <div className="col-lg-12">
+      //                 <SearchBar searchMovieProp={this.searchMovie} />
+      //               </div>
+      //             </div>
+
+      //             <MovieList
+      //               deleteMovieProp={this.deleteMovie}
+      //               movies={filteredMovies}
+      //             />
+      //           </React.Fragment>
+      //         )}
+      //       />
+      //     </Routes>
+      //     <Routes>
+      //       {/* <Route path="/add">
+      //                     <AddMovie />
+      //                   </Route> */}
+      //       {/* Yerine aşağıdaki gibi yazabiliriz */}
+      //       <Route path="/add" element={<AddMovie />} />
+      //     </Routes>
+      //   </Router>
+      // </div>
       <div className="container">
-        <Router>
-          <Routes>
-            {/* <Route path="/add">
+        <div className="row">
+          <div className="col-lg-12">
+            <SearchBar searchMovieProp={this.searchMovie} />
+          </div>
+        </div>
+
+        <MovieList deleteMovieProp={this.deleteMovie} movies={filteredMovies} />
+
+        {/* <Route path="/add">
                           <AddMovie />
                         </Route> */}
-            {/* Yerine aşağıdaki gibi yazabiliriz */}
-            <Route path="/add" element={<AddMovie />} />
-          </Routes>
-          <Routes>
-            <Route
-              exact
-              path="/"
-              element={<Home/>}
-            />
-          </Routes>
-        </Router>
+        {/* Yerine aşağıdaki gibi yazabiliriz */}
+        <AddMovie />
       </div>
     );
   }
