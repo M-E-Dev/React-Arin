@@ -2,6 +2,7 @@ import React from "react";
 import SearchBar from "./SearchBar";
 import MovieList from "./MovieList";
 import AddMovie from "./AddMovie";
+import Home from "./home";
 import {
   BrowserRouter as Router,
   Routes,
@@ -176,21 +177,7 @@ class App extends React.Component {
             <Route
               exact
               path="/"
-              render={() => (
-                // <div></div> Jsx içeriğini dive almak yerine React.Fragment kullanacağız, Aynı hiyerarşide çoklu element almamızı sağlar
-                <React.Fragment>
-                  <div className="row">
-                    <div className="col-lg-12">
-                      <SearchBar searchMovieProp={this.searchMovie} />
-                    </div>
-                  </div>
-
-                  <MovieList
-                    deleteMovieProp={this.deleteMovie}
-                    movies={filteredMovies}
-                  />
-                </React.Fragment>
-              )}
+              element={<Home/>}
             />
           </Routes>
         </Router>
