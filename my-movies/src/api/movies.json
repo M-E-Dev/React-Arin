@@ -29,24 +29,23 @@
       "poster_path": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/xbiycuc84TrieEWwkkuH2hoEa9S.jpg"
     },
     {
-      "title": "sdfg",
-      "rating": "5",
-      "imageURL": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/8eFSIS6P1gm1RrKbkDiUKzfOKsa.jpg",
-      "overview": "dsfgsdfg",
+      "title": "Harry Potter ",
+      "rating": "9.9",
+      "poster_path": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/6FHO9N5mj5hdgRNYzflgheemIBZ.jpg",
       "id": 6
     },
     {
-      "title": "sdfg",
-      "rating": "5",
-      "imageURL": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/8eFSIS6P1gm1RrKbkDiUKzfOKsa.jpg",
-      "overview": "dsfgsdfg",
+      "title": "Harry Potter And The Philosophers Stone",
+      "rating": "9.9",
+      "poster_path": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/6FHO9N5mj5hdgRNYzflgheemIBZ.jpg",
+      "overview": "Harry Potter, muggle (büyücü yada cadı olmayan insanlar) amcası ve halasıyla sıradan ve zorluklarla dolu bir hayatı yaşarken, yılanlarla konuşabildiğinin, kızgınlık öfkesi sırasında eşyaları hareket ettirebildiğinin farkına varacaktır. ",
       "id": 7
     },
     {
-      "title": "sdfg",
-      "rating": "5",
-      "imageURL": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/8eFSIS6P1gm1RrKbkDiUKzfOKsa.jpg",
-      "overview": "dsfgsdfg",
+      "title": "Harry Potter And The Philosophers Stone",
+      "vote_average": "9.9",
+      "poster_path": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/6FHO9N5mj5hdgRNYzflgheemIBZ.jpg",
+      "overview": "Harry Potter, muggle (büyücü yada cadı olmayan insanlar) amcası ve halasıyla sıradan ve zorluklarla dolu bir hayatı yaşarken, yılanlarla konuşabildiğinin, kızgınlık öfkesi sırasında eşyaları hareket ettirebildiğinin farkına varacaktır. ",
       "id": 8
     }
   ]

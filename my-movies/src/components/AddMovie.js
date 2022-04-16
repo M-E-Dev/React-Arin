@@ -34,7 +34,7 @@ class AddMovie extends React.Component {
                         <input 
                                 type="text" 
                                 className="form-control" 
-                                name="rating"/>
+                                name="vote_average"/>
                     </div>
                 </div>
                 <div className="form-row">
@@ -43,7 +43,7 @@ class AddMovie extends React.Component {
                         <input 
                                 type="text" 
                                 className="form-control" 
-                                name="imageURL"/>
+                                name="poster_path"/>
                     </div>
                 </div>
                 <div className="form-row">
