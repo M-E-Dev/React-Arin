@@ -28,6 +28,10 @@ class SearchBar extends React.Component {
             ></input>
           </div>
           <div className="col-2">
+            {/* Link çalışmıyor
+            <Link type="button" className="btn btn-md btn-danger" style={{float:"right"}}>
+                  Add Movie
+              </Link> */}
               <button type="button" className="btn btn-md btn-danger" style={{float:"right"}}>
                   Add Movie
               </button>
