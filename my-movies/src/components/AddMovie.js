@@ -1,6 +1,6 @@
 import React from 'react';
 // npm i form-serialize
-// import serialize from 'form-serialize';
+import serialize from 'form-serialize';
 
 // Routing
 // npm install react-router-dom@6
@@ -10,6 +10,9 @@ class AddMovie extends React.Component {
 
     handleFormSubmit = (e) => {
         e.preventDefault();
+        const newMovie = serialize(e.target, { hash: true });
+        console.log(newMovie)
+        this.props.onAddMovie(newMovie)
     }
 
 
@@ -24,7 +27,7 @@ class AddMovie extends React.Component {
                         <label htmlFor="inputName">Name</label>
                         <input  type="text" 
                                 className="form-control" 
-                                name="name"/>
+                                name="title"/>
                     </div>
                     <div className="form-group col-md-2">
                         <label htmlFor="inputRating">Rating</label>

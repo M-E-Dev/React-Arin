@@ -122,31 +122,36 @@ class App extends React.Component {
     console.log(event.target.value);
   };
 
-  // Fetch yöntemi
-  deleteMovie = async (movie) => {
-    const url = `http://localhost:3002/movies/${movie.id}`;
-    await fetch(url, {
-      // Default metod get olduğu için normalde metod belirtmiyoruz.
-      // Burada ise
-      method: "DELETE",
-    });
-    // Filter metodu silinirse apiden siliniyor ama ekran güncellenmiyor.
-    const newMovieList = this.state.movies.filter((m) => m.id !== movie.id);
-    this.setState((state) => ({ movies: newMovieList }));
+  addMovie= async (movie) => {
+    await axios.post(`http://localhost:3002/movies/`, movie)
+    this.setState( (state) => ({ movies: state.movies.concat([movie])}))
+  }
 
-    //State boş olsaydı bu kullanılabilirdi
-    // this.setState ({
-    //   movies:newMovieList
-    // })
-  };
-
-  // // AXIOS yöntemi
+  // // Fetch yöntemi
   // deleteMovie = async (movie) => {
-  //   axios.delete(`http://localhost:3002/movies/${movie.id}`)
-  //   // Axios da filter gerekiyor. Apiden siliniyor ama ekranda güncellemiyor yoksa.
+  //   const url = `http://localhost:3002/movies/${movie.id}`;
+  //   await fetch(url, {
+  //     // Default metod get olduğu için normalde metod belirtmiyoruz.
+  //     // Burada ise
+  //     method: "DELETE",
+  //   });
+  //   // Filter metodu silinirse apiden siliniyor ama ekran güncellenmiyor.
   //   const newMovieList = this.state.movies.filter((m) => m.id !== movie.id);
   //   this.setState((state) => ({ movies: newMovieList }));
+
+  //   //State boş olsaydı bu kullanılabilirdi
+  //   // this.setState ({
+  //   //   movies:newMovieList
+  //   // })
   // };
+
+  // AXIOS yöntemi
+  deleteMovie = async (movie) => {
+    axios.delete(`http://localhost:3002/movies/${movie.id}`)
+    // Axios da filter gerekiyor. Apiden siliniyor ama ekranda güncellemiyor yoksa.
+    const newMovieList = this.state.movies.filter((m) => m.id !== movie.id);
+    this.setState((state) => ({ movies: newMovieList }));
+  };
 
   //  Routing kullanmadan bu şekilde yapılırdı
   // if (window.location === http:/localhost:3000/edit) {
@@ -209,7 +214,7 @@ class App extends React.Component {
                           <AddMovie />
                         </Route> */}
         {/* Yerine aşağıdaki gibi yazabiliriz */}
-        <AddMovie />
+        <AddMovie onAddMovie={(movie) => {this.addMovie(movie)}} />
       </div>
     );
   }
